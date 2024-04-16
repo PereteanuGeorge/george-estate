@@ -26,6 +26,21 @@ export default function CreateListing() {
     offer: false,
     parking: false,
     furnished: false,
+    suprafata: 0, 
+    intretinereaMedie: 0,
+    etaj: 0,
+    lift: false,
+    compartimentare: '',
+    centralaProprie: false,
+    aerConditionat: false,
+    acceptaStudenti: false,
+    animale: false,
+    balcon: false,
+    depozit: 0,
+    durataInchiriat: 0,
+    fumatori: false,
+    straini: false,
+    sector: 0
   });
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -103,7 +118,15 @@ export default function CreateListing() {
     if (
       e.target.id === 'parking' ||
       e.target.id === 'furnished' ||
-      e.target.id === 'offer'
+      e.target.id === 'offer' || 
+      e.target.id === 'lift' ||
+      e.target.id === 'centralaProprie' ||  
+      e.target.id === 'aerConditionat' ||  
+      e.target.id === 'acceptaStudenti' || 
+      e.target.id === 'animale' || 
+      e.target.id === 'balcon' || 
+      e.target.id === 'fumatori' || 
+      e.target.id === 'straini'
     ) {
       setFormData({
         ...formData,
@@ -189,6 +212,15 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.address}
           />
+          <input
+              type='text'
+              placeholder='Compartimentare'
+              className='border p-3 rounded-lg'
+              id='compartimentare'
+              required
+              onChange={handleChange}
+              value={formData.compartimentare}
+          />
           <div className='flex gap-6 flex-wrap'>
             <div className='flex gap-2'>
               <input
@@ -240,6 +272,86 @@ export default function CreateListing() {
               />
               <span>Offer</span>
             </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='lift'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.lift}
+              />
+              <span>Lift</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='centralaProprie'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.centralaProprie}
+              />
+              <span>Centrala Proprie</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='aerConditionat'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.aerConditionat}
+              />
+              <span>Aer Conditionat</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='acceptaStudenti'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.acceptaStudenti}
+              />
+              <span>Accepta Studenti</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='animale'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.animale}
+              />
+              <span>Accepta Animale</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='balcon'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.balcon}
+              />
+              <span>Balcon</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='fumatori'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.fumatori}
+              />
+              <span>Accepta Fumatori</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='straini'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.straini}
+              />
+              <span>Accepta Straini</span>
+            </div>
           </div>
           <div className='flex flex-wrap gap-6'>
             <div className='flex items-center gap-2'>
@@ -267,6 +379,84 @@ export default function CreateListing() {
                 value={formData.bathrooms}
               />
               <p>Baths</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='suprafata'
+                min='1'
+                max='300'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.suprafata}
+              />
+              <p>Suprafata</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='intretinereaMedie'
+                min='1'
+                max='1500'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.intretinereaMedie}
+              />
+              <p>Intretinerea Medie</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='etaj'
+                min='1'
+                max='15'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.etaj}
+              />
+              <p>Etaj</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='sector'
+                min='1'
+                max='6'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.sector}
+              />
+              <p>Sector</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='durataInchiriat'
+                min='1'
+                max='60'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.durataInchiriat}
+              />
+              <p>Durata Minima a Inchirierii</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='depozit'
+                min='1'
+                max='60'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.depozit}
+              />
+              <p>Depozit</p>
             </div>
             <div className='flex items-center gap-2'>
               <input

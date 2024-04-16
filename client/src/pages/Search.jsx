@@ -10,6 +10,14 @@ export default function Search() {
     parking: false,
     furnished: false,
     offer: false,
+    centralaProprie: false,
+    aerConditionat: false,
+    acceptaStudenti: false,
+    animale: false,
+    balcon: false,
+    fumatori: false,
+    straini: false,
+    lift: false,
     sort: 'created_at',
     order: 'desc',
   });
@@ -24,6 +32,14 @@ export default function Search() {
     const typeFromUrl = urlParams.get('type');
     const parkingFromUrl = urlParams.get('parking');
     const furnishedFromUrl = urlParams.get('furnished');
+    const centralaProprieFromUrl = urlParams.get('centralaProprie');
+    const aerConditionatFromUrl = urlParams.get('aerConditionat');
+    const acceptaStudentiFromUrl = urlParams.get('acceptaStudenti');
+    const animaleFromUrl = urlParams.get('animale');
+    const balconFromUrl = urlParams.get('balcon');
+    const fumatoriFromUrl = urlParams.get('fumatori');
+    const strainiFromUrl = urlParams.get('straini');
+    const liftFromUrl = urlParams.get('lift');
     const offerFromUrl = urlParams.get('offer');
     const sortFromUrl = urlParams.get('sort');
     const orderFromUrl = urlParams.get('order');
@@ -35,7 +51,15 @@ export default function Search() {
       furnishedFromUrl ||
       offerFromUrl ||
       sortFromUrl ||
-      orderFromUrl
+      orderFromUrl || 
+      centralaProprieFromUrl ||
+      aerConditionatFromUrl ||
+      acceptaStudentiFromUrl ||
+      animaleFromUrl ||
+      balconFromUrl ||
+      fumatoriFromUrl ||
+      strainiFromUrl ||
+      liftFromUrl
     ) {
       setSidebardata({
         searchTerm: searchTermFromUrl || '',
@@ -43,6 +67,14 @@ export default function Search() {
         parking: parkingFromUrl === 'true' ? true : false,
         furnished: furnishedFromUrl === 'true' ? true : false,
         offer: offerFromUrl === 'true' ? true : false,
+        centralaProprie: centralaProprieFromUrl === 'true' ? true : false,
+        aerConditionat: aerConditionatFromUrl === 'true' ? true : false,
+        acceptaStudenti: acceptaStudentiFromUrl === 'true' ? true : false,
+        animale: animaleFromUrl === 'true' ? true : false,
+        balcon: balconFromUrl === 'true' ? true : false,
+        fumatori: fumatoriFromUrl === 'true' ? true : false,
+        straini: strainiFromUrl === 'true' ? true : false,
+        lift: liftFromUrl === 'true' ? true : false,
         sort: sortFromUrl || 'created_at',
         order: orderFromUrl || 'desc',
       });
@@ -82,7 +114,15 @@ export default function Search() {
     if (
       e.target.id === 'parking' ||
       e.target.id === 'furnished' ||
-      e.target.id === 'offer'
+      e.target.id === 'offer' ||
+      e.target.id === 'lift' ||
+      e.target.id === 'centralaProprie' ||  
+      e.target.id === 'aerConditionat' ||  
+      e.target.id === 'acceptaStudenti' || 
+      e.target.id === 'animale' || 
+      e.target.id === 'balcon' || 
+      e.target.id === 'fumatori' || 
+      e.target.id === 'straini'
     ) {
       setSidebardata({
         ...sidebardata,
@@ -107,6 +147,14 @@ export default function Search() {
     urlParams.set('type', sidebardata.type);
     urlParams.set('parking', sidebardata.parking);
     urlParams.set('furnished', sidebardata.furnished);
+    urlParams.set('lift', sidebardata.lift);
+    urlParams.set('centralaProprie', sidebardata.centralaProprie);
+    urlParams.set('aerConditionat', sidebardata.aerConditionat);
+    urlParams.set('acceptaStudenti', sidebardata.acceptaStudenti);
+    urlParams.set('animale', sidebardata.animale);
+    urlParams.set('balcon', sidebardata.balcon);
+    urlParams.set('fumatori', sidebardata.fumatori);
+    urlParams.set('straini', sidebardata.straini);
     urlParams.set('offer', sidebardata.offer);
     urlParams.set('sort', sidebardata.sort);
     urlParams.set('order', sidebardata.order);
@@ -208,6 +256,86 @@ export default function Search() {
                 checked={sidebardata.furnished}
               />
               <span>Furnished</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='lift'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.lift}
+              />
+              <span>Lift</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='centralaProprie'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.centralaProprie}
+              />
+              <span>Centrala Proprie</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='aerConditionat'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.aerConditionat}
+              />
+              <span>Aer Conditionat</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='acceptaStudenti'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.acceptaStudenti}
+              />
+              <span>Accepta Studenti</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='animale'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.animale}
+              />
+              <span>Accepta Animale</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='balcon'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.balcon}
+              />
+              <span>Balcon</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='fumatori'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.fumatori}
+              />
+              <span>Accepta Fumatori</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='straini'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.straini}
+              />
+              <span>Accepta Straini</span>
             </div>
           </div>
           <div className='flex items-center gap-2'>
