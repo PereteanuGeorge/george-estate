@@ -84,6 +84,54 @@ export const getListings = async (req, res, next) => {
       parking = { $in: [false, true] };
     }
 
+    let lift = req.query.lift;
+
+    if (lift === undefined || lift === 'false') {
+      lift = { $in: [false, true] };
+    }
+
+    let centralaProprie = req.query.centralaProprie;
+
+    if (centralaProprie === undefined || centralaProprie === 'false') {
+      centralaProprie = { $in: [false, true] };
+    }
+
+    let aerConditionat = req.query.aerConditionat;
+
+    if (aerConditionat === undefined || aerConditionat === 'false') {
+      aerConditionat = { $in: [false, true] };
+    }
+
+    let acceptaStudenti = req.query.acceptaStudenti;
+
+    if (acceptaStudenti === undefined || acceptaStudenti === 'false') {
+      acceptaStudenti = { $in: [false, true] };
+    }
+
+    let animale = req.query.animale;
+
+    if (animale === undefined || animale === 'false') {
+      animale = { $in: [false, true] };
+    }
+
+    let balcon = req.query.balcon;
+
+    if (balcon === undefined || balcon === 'false') {
+      balcon = { $in: [false, true] };
+    }
+
+    let fumatori = req.query.fumatori;
+
+    if (fumatori === undefined || fumatori === 'false') {
+      fumatori = { $in: [false, true] };
+    }
+
+    let straini = req.query.straini;
+
+    if (straini === undefined || straini === 'false') {
+      straini = { $in: [false, true] };
+    }
+
     let type = req.query.type;
 
     if (type === undefined || type === 'all') {
@@ -102,6 +150,14 @@ export const getListings = async (req, res, next) => {
       furnished,
       parking,
       type,
+      lift,
+      centralaProprie,
+      aerConditionat,
+      acceptaStudenti,
+      animale,
+      balcon,
+      fumatori,
+      straini
     })
       .sort({ [sort]: order })
       .limit(limit)
