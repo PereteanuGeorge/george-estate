@@ -263,7 +263,7 @@ export default function Search() {
                 id='lift'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.lift}
+                checked={sidebardata.lift}
               />
               <span>Lift</span>
             </div>
@@ -273,7 +273,7 @@ export default function Search() {
                 id='centralaProprie'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.centralaProprie}
+                checked={sidebardata.centralaProprie}
               />
               <span>Centrala Proprie</span>
             </div>
@@ -283,7 +283,7 @@ export default function Search() {
                 id='aerConditionat'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.aerConditionat}
+                checked={sidebardata.aerConditionat}
               />
               <span>Aer Conditionat</span>
             </div>
@@ -293,7 +293,7 @@ export default function Search() {
                 id='acceptaStudenti'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.acceptaStudenti}
+                checked={sidebardata.acceptaStudenti}
               />
               <span>Accepta Studenti</span>
             </div>
@@ -303,7 +303,7 @@ export default function Search() {
                 id='animale'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.animale}
+                checked={sidebardata.animale}
               />
               <span>Accepta Animale</span>
             </div>
@@ -313,7 +313,7 @@ export default function Search() {
                 id='balcon'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.balcon}
+                checked={sidebardata.balcon}
               />
               <span>Balcon</span>
             </div>
@@ -323,7 +323,7 @@ export default function Search() {
                 id='fumatori'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.fumatori}
+                checked={sidebardata.fumatori}
               />
               <span>Accepta Fumatori</span>
             </div>
@@ -333,7 +333,7 @@ export default function Search() {
                 id='straini'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.straini}
+                checked={sidebardata.straini}
               />
               <span>Accepta Straini</span>
             </div>
