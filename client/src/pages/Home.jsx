@@ -5,11 +5,16 @@ import { Navigation } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
+import TermsAndConditions from '../components/TermsAndConditions';
+import Modal from '../components/Modal';
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   SwiperCore.use([Navigation]);
   console.log(offerListings);
   useEffect(() => {
@@ -129,6 +134,30 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      <div style={{
+        display: 'flex',  // Uses flexbox to center the button horizontally
+        justifyContent: 'center',  // Centers the button horizontally
+        padding: '20px 0',  // Adds some padding around the button
+      }}>
+        <button onClick={openModal} style={{
+          textDecoration: 'underline',
+          color: 'blue',
+          cursor: 'pointer',
+          padding: '10px 20px',
+          borderRadius: '5px',
+          backgroundColor: '#f0f0f0',  // Slightly gray background for visibility
+          border: 'none',
+          boxShadow: '0 2px 5px rgba(0,0,0,0.2)'  // Optional shadow for better visibility
+        }}>
+          Terms and Conditions
+        </button>
+      </div>
+
+      {/* Modal for displaying the terms */}
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <TermsAndConditions />
+      </Modal>
     </div>
   );
 }
